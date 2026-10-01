@@ -1,0 +1,6 @@
+{
+  "name": "DevLab: Week 3",
+  "description": "Flutter & Mobile Dev Hub: Weather REST API, Dynamic Feed, Local Storage, Firebase & Complete Flutter Source Code",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
