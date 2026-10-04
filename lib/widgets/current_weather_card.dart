@@ -229,7 +229,9 @@ class CurrentWeatherCard extends StatelessWidget {
               _MetricTile(
                 icon: Icons.thermostat_outlined,
                 label: 'Range',
-                value: '${weather.tempMin.round()}° / ${weather.tempMax.round()}°',
+                value: isCelsius
+                    ? '${weather.tempMin.round()}° / ${weather.tempMax.round()}°'
+                    : '${((weather.tempMin * 9 / 5) + 32).round()}° / ${((weather.tempMax * 9 / 5) + 32).round()}°',
               ),
             ],
           ),

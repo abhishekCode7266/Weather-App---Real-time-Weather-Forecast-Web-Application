@@ -157,7 +157,7 @@ class _WeatherHomeScreenState extends State<WeatherHomeScreen> {
                       Card(
                         elevation: 0,
                         color: colorScheme.errorContainer.withOpacity(0.7),
-                        shape: RoundedCornerShape(20),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(

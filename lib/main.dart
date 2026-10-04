@@ -26,7 +26,7 @@ class WeatherApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
         cardTheme: CardTheme(
           elevation: 0,
-          shape: RoundedCornerShape(20),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
       darkTheme: ThemeData(
@@ -38,7 +38,7 @@ class WeatherApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF0B132B),
         cardTheme: CardTheme(
           elevation: 0,
-          shape: RoundedCornerShape(20),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
       home: const WeatherHomeScreen(),
