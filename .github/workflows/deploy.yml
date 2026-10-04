@@ -90,8 +90,9 @@ jobs:
 
       - name: Ensure Android Platform Files
         run: |
+          rm -rf android
           flutter create --project-name weather_app --platforms=android --org com.example .
-          chmod +x android/gradlew || true
+          chmod +x android/gradlew
           sed -i '/<application/i \    <uses-permission android:name="android.permission.INTERNET"/>' android/app/src/main/AndroidManifest.xml
 
       - name: Install Dependencies
@@ -99,7 +100,7 @@ jobs:
 
       - name: Build Release APK
         run: |
-          flutter build apk --release -v
+          flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
