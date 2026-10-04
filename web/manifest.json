@@ -1,0 +1,23 @@
+{
+    "name": "Real-time Weather Forecast",
+    "short_name": "WeatherApp",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0b132b",
+    "theme_color": "#0284c7",
+    "description": "Real-time Weather Forecast Web Application and Android APK",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
