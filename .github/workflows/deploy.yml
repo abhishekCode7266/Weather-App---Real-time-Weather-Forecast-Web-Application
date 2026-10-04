@@ -90,7 +90,7 @@ jobs:
 
       - name: Ensure Android Platform Files
         run: |
-          flutter create --platforms=android --org com.example .
+          flutter create --project-name weather_app --platforms=android --org com.example .
           chmod +x android/gradlew || true
           sed -i '/<application/i \    <uses-permission android:name="android.permission.INTERNET"/>' android/app/src/main/AndroidManifest.xml
 
