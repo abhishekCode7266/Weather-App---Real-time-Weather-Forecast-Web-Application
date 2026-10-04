@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/Weather-App---Real-time-Weather-Forecast-Web-Application/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Real-time Weather Forecast Web Application. Live weather updates, 24-hour hourly outlook, and 7-day extended forecasts.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Weather Forecast">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Real-time Weather Forecast</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0b132b;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      z-index: 9999;
+    }
+
+    .weather-icon-anim {
+      font-size: 68px;
+      margin-bottom: 20px;
+      animation: float 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 8px 16px rgba(56, 189, 248, 0.4));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-12px) scale(1.05); }
+    }
+
+    .app-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    .spinner-box {
+      position: relative;
+      width: 48px;
+      height: 48px;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(56, 189, 248, 0.15);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.9s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+    // Dynamic Base HREF Detection to avoid 404 or white screen on GitHub Pages
+    (function() {
+      var base = document.querySelector('base');
+      var path = window.location.pathname;
+      if (!base || base.getAttribute('href') === '/Weather-App---Real-time-Weather-Forecast-Web-Application/') {
+        var baseHref = '/';
+        if (path.indexOf('Weather-App---Real-time-Weather-Forecast-Web-Application') !== -1) {
+          baseHref = '/Weather-App---Real-time-Weather-Forecast-Web-Application/';
+        }
+        if (!base) {
+          base = document.createElement('base');
+          document.head.prepend(base);
+        }
+        base.setAttribute('href', baseHref);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="loading-container">
+    <div class="weather-icon-anim">🌤️</div>
+    <div class="app-title">Weather Forecast App</div>
+    <div class="subtitle">Fetching real-time weather data...</div>
+    <div class="spinner-box">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <script>
+    // Smoothly remove loading screen when Flutter paints its first frame
+    window.addEventListener('flutter-first-frame', function () {
+      var loader = document.getElementById('loading-container');
+      if (loader) {
+        loader.style.opacity = '0';
+        loader.style.transform = 'scale(0.95)';
+        setTimeout(function() { loader.remove(); }, 500);
+      }
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
